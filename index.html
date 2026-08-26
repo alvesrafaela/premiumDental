@@ -1,842 +1,337 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Premium dental clinic website concept for a Montreal dental practice.">
-  <title>Aurora Dental Studio | Premium Website Concept</title>
-  <link rel="preconnect" href="https://images.unsplash.com">
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap");
-
-    :root {
-      --ink: #101418;
-      --navy: #10252d;
-      --deep: #071115;
-      --teal: #1f746b;
-      --mint: #dceeea;
-      --pearl: #fbf8f2;
-      --stone: #ece6dc;
-      --gold: #c7a46b;
-      --muted: #657179;
-      --white: #ffffff;
-      --line: rgba(16, 37, 45, 0.14);
-      --dark-line: rgba(251, 248, 242, 0.18);
-      --shadow: 0 26px 80px rgba(7, 17, 21, 0.18);
-      --radius: 8px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: var(--pearl);
-      color: var(--ink);
-      font-family: Inter, Arial, sans-serif;
-      line-height: 1.55;
-      margin: 0;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .concept-note {
-      background: var(--deep);
-      color: rgba(251, 248, 242, 0.76);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      padding: 10px 18px;
-      text-align: center;
-      text-transform: uppercase;
-    }
-
-    .topbar {
-      align-items: center;
-      background: var(--navy);
-      color: var(--pearl);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      justify-content: space-between;
-      padding: 10px clamp(18px, 5vw, 72px);
-    }
-
-    .topbar span,
-    .topbar a {
-      color: rgba(251, 248, 242, 0.78);
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .nav {
-      align-items: center;
-      background: rgba(251, 248, 242, 0.93);
-      border-bottom: 1px solid var(--line);
-      display: flex;
-      gap: 24px;
-      justify-content: space-between;
-      padding: 18px clamp(18px, 5vw, 72px);
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(16px);
-    }
-
-    .brand {
-      align-items: center;
-      display: flex;
-      gap: 13px;
-      min-width: 250px;
-    }
-
-    .brand-mark {
-      align-items: center;
-      background: var(--navy);
-      border-radius: 50%;
-      color: var(--gold);
-      display: flex;
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 18px;
-      font-weight: 700;
-      height: 46px;
-      justify-content: center;
-      width: 46px;
-    }
-
-    .brand strong {
-      display: block;
-      font-size: 14px;
-      letter-spacing: 0.08em;
-      line-height: 1.15;
-      text-transform: uppercase;
-    }
-
-    .brand span span {
-      color: var(--muted);
-      display: block;
-      font-size: 12px;
-      margin-top: 3px;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      justify-content: center;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .btn,
-    .nav-cta {
-      align-items: center;
-      border-radius: var(--radius);
-      cursor: pointer;
-      display: inline-flex;
-      font-size: 13px;
-      font-weight: 900;
-      justify-content: center;
-      letter-spacing: 0.04em;
-      min-height: 46px;
-      padding: 13px 18px;
-      text-transform: uppercase;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      white-space: nowrap;
-    }
-
-    .btn:hover,
-    .nav-cta:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn.primary,
-    .nav-cta {
-      background: var(--teal);
-      border: 1px solid var(--teal);
-      box-shadow: 0 16px 36px rgba(31, 116, 107, 0.24);
-      color: var(--white);
-    }
-
-    .btn.secondary {
-      background: rgba(251, 248, 242, 0.08);
-      border: 1px solid rgba(251, 248, 242, 0.32);
-      color: var(--pearl);
-    }
-
-    .hero {
-      background:
-        linear-gradient(90deg, rgba(7, 17, 21, 0.92) 0%, rgba(7, 17, 21, 0.72) 44%, rgba(7, 17, 21, 0.12) 100%),
-        url("https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1800&q=86");
-      background-position: center;
-      background-size: cover;
-      color: var(--pearl);
-      min-height: 720px;
-      padding: clamp(56px, 8vw, 108px) clamp(18px, 5vw, 72px) 56px;
-    }
-
-    .hero-grid {
-      display: grid;
-      gap: clamp(28px, 5vw, 64px);
-      grid-template-columns: minmax(0, 1fr) minmax(310px, 0.56fr);
-    }
-
-    .eyebrow {
-      color: var(--gold);
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: 0.16em;
-      margin: 0 0 14px;
-      text-transform: uppercase;
-    }
-
-    h1,
-    h2,
-    h3,
-    p {
-      margin-top: 0;
-    }
-
-    h1 {
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: clamp(46px, 8vw, 92px);
-      letter-spacing: 0;
-      line-height: 0.94;
-      margin-bottom: 22px;
-      max-width: 900px;
-    }
-
-    .hero-copy {
-      color: rgba(251, 248, 242, 0.78);
-      font-size: clamp(17px, 2vw, 22px);
-      margin-bottom: 30px;
-      max-width: 660px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 42px;
-    }
-
-    .trust-row {
-      display: grid;
-      gap: 12px;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      max-width: 730px;
-    }
-
-    .trust-item {
-      border-top: 1px solid rgba(199, 164, 107, 0.34);
-      padding-top: 14px;
-    }
-
-    .trust-item strong {
-      color: var(--gold);
-      display: block;
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 32px;
-      line-height: 1;
-    }
-
-    .trust-item span {
-      color: rgba(251, 248, 242, 0.68);
-      display: block;
-      font-size: 13px;
-      font-weight: 700;
-      margin-top: 6px;
-    }
-
-    .appointment-card {
-      align-self: end;
-      background: rgba(251, 248, 242, 0.95);
-      border: 1px solid rgba(251, 248, 242, 0.72);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      color: var(--ink);
-      padding: 26px;
-    }
-
-    .appointment-card h2 {
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 30px;
-      line-height: 1.04;
-      margin-bottom: 12px;
-    }
-
-    .appointment-card p {
-      color: var(--muted);
-      margin-bottom: 18px;
-    }
-
-    .quick-list {
-      display: grid;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-
-    .quick-list span {
-      align-items: center;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      color: var(--navy);
-      display: flex;
-      font-size: 14px;
-      font-weight: 800;
-      justify-content: space-between;
-      padding: 12px 13px;
-    }
-
-    section {
-      padding: 76px clamp(18px, 5vw, 72px);
-    }
-
-    .section-head {
-      align-items: end;
-      display: flex;
-      gap: 28px;
-      justify-content: space-between;
-      margin-bottom: 34px;
-    }
-
-    .section-head h2 {
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: clamp(34px, 5vw, 60px);
-      line-height: 0.98;
-      margin-bottom: 0;
-      max-width: 820px;
-    }
-
-    .section-head p {
-      color: var(--muted);
-      margin-bottom: 0;
-      max-width: 470px;
-    }
-
-    .services-grid {
-      display: grid;
-      gap: 16px;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .service-card,
-    .reason,
-    .doctor-card,
-    .visit-card {
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-    }
-
-    .service-card {
-      padding: 22px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .service-card:hover {
-      box-shadow: 0 20px 48px rgba(16, 37, 45, 0.12);
-      transform: translateY(-4px);
-    }
-
-    .service-number {
-      color: var(--gold);
-      display: block;
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 38px;
-      line-height: 1;
-      margin-bottom: 20px;
-    }
-
-    .service-card h3,
-    .reason h3,
-    .doctor-card h3,
-    .visit-card h3 {
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 25px;
-      line-height: 1.04;
-      margin-bottom: 10px;
-    }
-
-    .service-card p,
-    .reason p,
-    .doctor-card p,
-    .visit-card p {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .split {
-      align-items: center;
-      background: var(--mint);
-      display: grid;
-      gap: clamp(28px, 5vw, 58px);
-      grid-template-columns: 0.9fr 1.1fr;
-    }
-
-    .split-photo {
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .split-photo img {
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      width: 100%;
-    }
-
-    .reason-grid {
-      display: grid;
-      gap: 14px;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      margin-top: 28px;
-    }
-
-    .reason {
-      background: rgba(255, 255, 255, 0.72);
-      padding: 20px;
-    }
-
-    .team {
-      background: var(--navy);
-      color: var(--pearl);
-    }
-
-    .team .section-head p,
-    .team .doctor-card p {
-      color: rgba(251, 248, 242, 0.68);
-    }
-
-    .doctor-grid {
-      display: grid;
-      gap: 16px;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .doctor-card {
-      background: rgba(251, 248, 242, 0.08);
-      border-color: var(--dark-line);
-      overflow: hidden;
-    }
-
-    .doctor-card img {
-      aspect-ratio: 4 / 3;
-      filter: saturate(0.8);
-      object-fit: cover;
-      width: 100%;
-    }
-
-    .doctor-body {
-      padding: 20px;
-    }
-
-    .doctor-body span {
-      color: var(--gold);
-      display: block;
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: 0.1em;
-      margin-bottom: 8px;
-      text-transform: uppercase;
-    }
-
-    .visit {
-      background:
-        linear-gradient(90deg, rgba(251, 248, 242, 0.96), rgba(251, 248, 242, 0.82)),
-        url("https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1700&q=84");
-      background-position: center;
-      background-size: cover;
-    }
-
-    .visit-grid {
-      display: grid;
-      gap: 16px;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .visit-card {
-      padding: 22px;
-    }
-
-    .contact {
-      background: var(--deep);
-      color: var(--pearl);
-      display: grid;
-      gap: 30px;
-      grid-template-columns: 1fr 0.82fr;
-      padding-bottom: 88px;
-    }
-
-    .contact h2 {
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: clamp(38px, 6vw, 72px);
-      line-height: 0.96;
-      margin-bottom: 18px;
-      max-width: 840px;
-    }
-
-    .contact p {
-      color: rgba(251, 248, 242, 0.72);
-      font-size: 18px;
-      max-width: 680px;
-    }
-
-    .contact-card {
-      background: rgba(251, 248, 242, 0.08);
-      border: 1px solid var(--dark-line);
-      border-radius: var(--radius);
-      padding: 26px;
-    }
-
-    .contact-card strong {
-      color: var(--gold);
-      display: block;
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 30px;
-      line-height: 1.04;
-      margin-bottom: 12px;
-    }
-
-    .contact-lines {
-      display: grid;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    .contact-lines span {
-      border-top: 1px solid var(--dark-line);
-      color: rgba(251, 248, 242, 0.82);
-      font-size: 14px;
-      font-weight: 700;
-      padding-top: 10px;
-    }
-
-    footer {
-      background: #03080a;
-      color: rgba(251, 248, 242, 0.58);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: space-between;
-      padding: 24px clamp(18px, 5vw, 72px);
-    }
-
-    .floating-cta {
-      background: var(--teal);
-      border-radius: 999px;
-      bottom: 18px;
-      box-shadow: 0 18px 42px rgba(7, 17, 21, 0.24);
-      color: #fff;
-      font-size: 13px;
-      font-weight: 900;
-      letter-spacing: 0.06em;
-      padding: 13px 18px;
-      position: fixed;
-      right: 18px;
-      text-transform: uppercase;
-      z-index: 40;
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid,
-      .split,
-      .contact {
-        grid-template-columns: 1fr;
-      }
-
-      .services-grid,
-      .doctor-grid,
-      .reason-grid,
-      .visit-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 720px) {
-      .topbar,
-      .nav {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .nav-links {
-        justify-content: flex-start;
-      }
-
-      .nav-cta {
-        width: 100%;
-      }
-
-      .hero {
-        min-height: auto;
-        padding-top: 48px;
-      }
-
-      .trust-row,
-      .services-grid,
-      .doctor-grid,
-      .reason-grid,
-      .visit-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .section-head {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      section {
-        padding: 54px 18px;
-      }
-
-      .floating-cta {
-        bottom: 12px;
-        left: 12px;
-        right: 12px;
-        text-align: center;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boréal Dentaire — Concept de site premium</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,450;9..144,600&family=Work+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16241F;
+    --ink-soft:#3A4A43;
+    --porcelain:#EEF0EA;
+    --porcelain-2:#E4E7DE;
+    --sage:#5C7A6E;
+    --sage-deep:#1F3B36;
+    --brass:#B08D3F;
+    --brass-soft:#D9C48F;
+    --line: rgba(22,36,31,0.12);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--porcelain);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-weight:400;
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Fraunces', serif; font-weight:450; letter-spacing:-0.01em;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--sage-deep);
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:''; width:22px; height:1px; background:var(--brass);}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+
+  [data-i18n="en"]{display:none;}
+  html[data-lang="en"] [data-i18n="fr"]{display:none;}
+  html[data-lang="en"] [data-i18n="en"]{display:inline;}
+  html[data-lang="en"] div[data-i18n="en"], html[data-lang="en"] p[data-i18n="en"], html[data-lang="en"] span.block[data-i18n="en"]{display:block;}
+  div[data-i18n="fr"], p[data-i18n="fr"]{display:block;}
+  html[data-lang="en"] div[data-i18n="fr"], html[data-lang="en"] p[data-i18n="fr"]{display:none;}
+
+  /* HEADER */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(238,240,234,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:22px 32px;}
+  .brand{display:flex; align-items:center; gap:12px; font-family:'Fraunces', serif; font-size:1.25rem;}
+  .brand-mark{
+    width:34px; height:34px; border-radius:50%;
+    background:conic-gradient(from 200deg, var(--sage-deep), var(--brass), var(--sage-deep));
+  }
+  .nav-links{display:flex; gap:34px; font-size:0.92rem; color:var(--ink-soft);}
+  .nav-links a{position:relative; padding:4px 0;}
+  .nav-links a::after{content:''; position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--brass); transition:width .25s ease;}
+  .nav-links a:hover::after{width:100%;}
+  .lang-toggle{
+    display:flex; align-items:center; background:var(--sage-deep); border-radius:999px; padding:4px; gap:2px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; letter-spacing:0.06em;
+  }
+  .lang-toggle button{
+    border:none; background:transparent; color:#D9E2DC; padding:7px 14px; border-radius:999px; cursor:pointer;
+    transition:all .25s ease;
+  }
+  .lang-toggle button.active{background:var(--brass); color:var(--ink);}
+
+  /* HERO */
+  .hero{padding:96px 32px 80px; position:relative;}
+  .hero-grid{max-width:1180px; margin:0 auto; display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:end;}
+  .hero-tag{margin-bottom:26px;}
+  .hero h1{font-size:clamp(2.6rem, 5vw, 4.3rem); line-height:1.04; color:var(--sage-deep);}
+  .hero h1 em{font-style:italic; color:var(--brass);}
+  .hero-sub{margin-top:22px; max-width:480px; color:var(--ink-soft); font-size:1.05rem;}
+  .hero-cta{margin-top:36px; display:flex; gap:16px; align-items:center;}
+  .btn{
+    padding:14px 26px; border-radius:2px; font-size:0.92rem; font-weight:500; cursor:pointer; border:1px solid transparent;
+  }
+  .btn-primary{background:var(--sage-deep); color:#F2F0E8;}
+  .btn-primary:hover{background:var(--ink);}
+  .btn-ghost{border-color:var(--ink); color:var(--ink);}
+  .lang-proof{
+    border:1px solid var(--line); background:#fff; padding:26px; border-radius:2px;
+  }
+  .lang-proof-row{display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px dashed var(--line); font-size:0.92rem;}
+  .lang-proof-row:last-child{border-bottom:none;}
+  .lang-proof-row .tag{font-family:'IBM Plex Mono', monospace; font-size:0.68rem; letter-spacing:0.08em; color:var(--brass); text-transform:uppercase;}
+
+  .stats{display:flex; gap:52px; margin-top:64px; padding-top:36px; border-top:1px solid var(--line); max-width:1180px; margin-left:auto; margin-right:auto;}
+  .stat b{font-family:'Fraunces', serif; font-size:2rem; display:block; color:var(--sage-deep);}
+  .stat span{font-size:0.85rem; color:var(--ink-soft);}
+
+  /* SECTION GENERIC */
+  section{padding:90px 0;}
+  .section-head{max-width:640px; margin-bottom:56px;}
+  .section-head h2{font-size:clamp(1.9rem,3vw,2.6rem); margin-top:18px; color:var(--sage-deep);}
+
+  /* SERVICES */
+  .services{background:var(--sage-deep); color:#F2F0E8;}
+  .services .eyebrow{color:var(--brass-soft);}
+  .services .eyebrow::before{background:var(--brass-soft);}
+  .services .section-head h2{color:#F2F0E8;}
+  .service-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(242,240,232,0.14); border:1px solid rgba(242,240,232,0.14);}
+  .service-card{background:var(--sage-deep); padding:34px 28px; transition:background .3s ease;}
+  .service-card:hover{background:#28453F;}
+  .service-card h3{font-size:1.15rem; font-weight:450; margin-bottom:10px;}
+  .service-card p{font-size:0.9rem; color:#C9D3CC;}
+
+  /* TRUST / ACCESS */
+  .access{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;}
+  .access img{width:100%; border-radius:2px; display:block; filter:saturate(0.92);}
+  .access-list{list-style:none;}
+  .access-list li{display:flex; gap:16px; padding:18px 0; border-bottom:1px solid var(--line);}
+  .access-list .num{font-family:'IBM Plex Mono', monospace; color:var(--brass); font-size:0.85rem; padding-top:3px;}
+  .access-list h4{font-size:1.02rem; font-weight:500; margin-bottom:4px;}
+  .access-list p{font-size:0.88rem; color:var(--ink-soft);}
+
+  /* TEAM */
+  .team-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:32px;}
+  .team-card img{width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:2px; filter:grayscale(0.15);}
+  .team-card h3{margin-top:18px; font-size:1.1rem;}
+  .team-card .role{font-family:'IBM Plex Mono', monospace; font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--brass); margin:6px 0 8px;}
+  .team-card p{font-size:0.88rem; color:var(--ink-soft);}
+
+  /* CTA / CONTACT */
+  .contact{background:var(--ink); color:#EDECE4; border-radius:2px; padding:70px 60px; display:grid; grid-template-columns:1.2fr 1fr; gap:50px; align-items:center;}
+  .contact h2{color:#EDECE4; font-size:clamp(1.8rem,3vw,2.4rem);}
+  .contact-detail{border-left:1px solid rgba(237,236,228,0.2); padding-left:32px;}
+  .contact-detail .row{padding:12px 0; font-size:0.92rem; display:flex; justify-content:space-between; border-bottom:1px solid rgba(237,236,228,0.12);}
+  .contact-detail .row span:first-child{color:#9DA79F;}
+
+  footer{padding:36px 32px; font-size:0.8rem; color:var(--ink-soft); display:flex; justify-content:space-between; max-width:1180px; margin:0 auto;}
+
+  @media(max-width:860px){
+    .hero-grid{grid-template-columns:1fr;}
+    .service-grid{grid-template-columns:1fr;}
+    .access{grid-template-columns:1fr;}
+    .team-grid{grid-template-columns:1fr;}
+    .contact{grid-template-columns:1fr; padding:40px 26px;}
+    .stats{flex-wrap:wrap; gap:28px;}
+    .nav-links{display:none;}
+  }
+  @media (prefers-reduced-motion: reduce){ *{transition:none !important; scroll-behavior:auto !important;} }
+</style>
 </head>
 <body>
-  <div class="concept-note">Portfolio concept by Rafaela Alves Studio - fictional dental clinic website</div>
 
-  <div class="topbar">
-    <span>Downtown Montreal dental studio</span>
-    <span>Mon-Fri 9:00-18:00</span>
-    <a href="#contact">Request appointment</a>
-  </div>
-
-  <nav class="nav" aria-label="Primary navigation">
-    <a class="brand" href="#home" aria-label="Aurora Dental Studio">
-      <span class="brand-mark">AD</span>
-      <span>
-        <strong>Aurora Dental Studio</strong>
-        <span>Premium multilingual dental care</span>
-      </span>
-    </a>
+<header>
+  <div class="nav">
+    <div class="brand"><div class="brand-mark"></div>Boréal Dentaire</div>
     <div class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#clinic">Clinic</a>
-      <a href="#team">Team</a>
-      <a href="#visit">Visit</a>
+      <a href="#services" data-i18n="fr">Soins</a><a href="#services" data-i18n="en">Care</a>
+      <a href="#access" data-i18n="fr">Accès</a><a href="#access" data-i18n="en">Access</a>
+      <a href="#team" data-i18n="fr">Équipe</a><a href="#team" data-i18n="en">Team</a>
+      <a href="#contact" data-i18n="fr">Rendez-vous</a><a href="#contact" data-i18n="en">Book a visit</a>
     </div>
-    <a class="nav-cta" href="#contact">Book a visit</a>
-  </nav>
+    <div class="lang-toggle">
+      <button id="btn-fr" class="active" onclick="setLang('fr')">FR</button>
+      <button id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</header>
 
-  <main id="home">
-    <header class="hero">
-      <div class="hero-grid">
-        <div>
-          <p class="eyebrow">Premium dental care in downtown Montreal</p>
-          <h1>Premium dentistry with a calmer kind of confidence.</h1>
-          <p class="hero-copy">A refined digital concept for a multilingual dental studio serving families, professionals and newcomers who want modern care without the clinical coldness.</p>
-          <div class="hero-actions">
-            <a class="btn primary" href="#services">Explore services</a>
-            <a class="btn secondary" href="#contact">Request appointment</a>
-          </div>
-          <div class="trust-row" aria-label="Clinic highlights">
-            <div class="trust-item">
-              <strong>15+</strong>
-              <span>years of clinical experience</span>
-            </div>
-            <div class="trust-item">
-              <strong>Central</strong>
-              <span>downtown Montreal location</span>
-            </div>
-            <div class="trust-item">
-              <strong>4</strong>
-              <span>languages spoken</span>
-            </div>
-          </div>
-        </div>
-
-        <aside class="appointment-card" aria-label="Appointment summary">
-          <h2>A dental experience designed around comfort.</h2>
-          <p>From preventive care to implants and cosmetic treatments, the concept positions the clinic as modern, approachable and premium.</p>
-          <div class="quick-list">
-            <span>English, French, Arabic, Portuguese <b>+</b></span>
-            <span>Digital facilities <b>+</b></span>
-            <span>Wheelchair accessible building <b>+</b></span>
-          </div>
-          <a class="btn primary" href="#contact">Plan your visit</a>
-        </aside>
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow" data-i18n="fr">Clinique dentaire · Dorval, Québec</div>
+      <div class="eyebrow" data-i18n="en">Dental clinic · Dorval, Québec</div>
+      <h1 data-i18n="fr">Le français d'abord.<br>Le soin, <em>toujours</em>.</h1>
+      <h1 data-i18n="en">French first.<br>Care, <em>always</em>.</h1>
+      <p class="hero-sub" data-i18n="fr">Un concept de site pensé pour une clinique bilingue du Québec : le français comme langue principale et complète, l'anglais offert avec la même qualité, jamais l'inverse.</p>
+      <p class="hero-sub" data-i18n="en">A website concept for a bilingual Québec clinic: French as the complete, primary language, English offered at the same quality, never the reverse.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#contact" data-i18n="fr">Prendre rendez-vous</a>
+        <a class="btn btn-primary" href="#contact" data-i18n="en">Book an appointment</a>
+        <a class="btn btn-ghost" href="#services" data-i18n="fr">Voir les soins</a>
+        <a class="btn btn-ghost" href="#services" data-i18n="en">View services</a>
       </div>
-    </header>
+    </div>
+    <div class="lang-proof">
+      <div class="lang-proof-row"><span data-i18n="fr">Page d'accueil</span><span data-i18n="en">Homepage</span><span class="tag">FR = EN</span></div>
+      <div class="lang-proof-row"><span data-i18n="fr">Fiche des soins</span><span data-i18n="en">Services page</span><span class="tag">FR = EN</span></div>
+      <div class="lang-proof-row"><span data-i18n="fr">Formulaire patient</span><span data-i18n="en">Patient form</span><span class="tag">FR = EN</span></div>
+      <div class="lang-proof-row"><span data-i18n="fr">Politique et mentions</span><span data-i18n="en">Policies &amp; notices</span><span class="tag">FR = EN</span></div>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>100%</b><span data-i18n="fr">du contenu traduit intégralement</span><span data-i18n="en">of content fully translated</span></div>
+    <div class="stat"><b>0</b><span data-i18n="fr">page laissée seulement en anglais</span><span data-i18n="en">pages left English-only</span></div>
+    <div class="stat"><b>2</b><span data-i18n="fr">langues, même priorité visuelle</span><span data-i18n="en">languages, equal visual weight</span></div>
+  </div>
+</section>
 
-    <section id="services">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Comprehensive care</p>
-          <h2>One clinic for preventive, restorative and aesthetic dentistry.</h2>
-        </div>
-        <p>The service list is structured into a more premium, easier-to-scan experience that guides visitors toward booking.</p>
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="fr">Nos soins</div>
+      <div class="eyebrow" data-i18n="en">Our care</div>
+      <h2 data-i18n="fr">Des soins complets, présentés simplement.</h2>
+      <h2 data-i18n="en">Comprehensive care, presented simply.</h2>
+    </div>
+    <div class="service-grid">
+      <div class="service-card">
+        <h3 data-i18n="fr">Dentisterie familiale</h3><h3 data-i18n="en">Family dentistry</h3>
+        <p data-i18n="fr">Soins préventifs et suivis réguliers pour toute la famille.</p>
+        <p data-i18n="en">Preventive care and routine follow-ups for the whole family.</p>
       </div>
+      <div class="service-card">
+        <h3 data-i18n="fr">Orthodontie</h3><h3 data-i18n="en">Orthodontics</h3>
+        <p data-i18n="fr">Alignement discret, adapté aux adultes comme aux enfants.</p>
+        <p data-i18n="en">Discreet alignment, suited to adults and children alike.</p>
+      </div>
+      <div class="service-card">
+        <h3 data-i18n="fr">Dentisterie esthétique</h3><h3 data-i18n="en">Cosmetic dentistry</h3>
+        <p data-i18n="fr">Blanchiment, facettes et corrections pour un sourire naturel.</p>
+        <p data-i18n="en">Whitening, veneers and corrections for a natural smile.</p>
+      </div>
+      <div class="service-card">
+        <h3 data-i18n="fr">Implantologie</h3><h3 data-i18n="en">Implantology</h3>
+        <p data-i18n="fr">Solutions durables, pensées pour un résultat naturel.</p>
+        <p data-i18n="en">Durable solutions, designed for a natural result.</p>
+      </div>
+      <div class="service-card">
+        <h3 data-i18n="fr">Urgences dentaires</h3><h3 data-i18n="en">Dental emergencies</h3>
+        <p data-i18n="fr">Prise en charge rapide, en français comme en anglais.</p>
+        <p data-i18n="en">Fast care, available in French and English alike.</p>
+      </div>
+      <div class="service-card">
+        <h3 data-i18n="fr">Hygiène et prévention</h3><h3 data-i18n="en">Hygiene &amp; prevention</h3>
+        <p data-i18n="fr">Nettoyages et suivis pour une santé bucco-dentaire durable.</p>
+        <p data-i18n="en">Cleanings and follow-ups for lasting oral health.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <div class="services-grid">
-        <article class="service-card">
-          <span class="service-number">01</span>
-          <h3>Family Dentistry</h3>
-          <p>Preventive care and routine treatments for adults and children, built around long-term oral health.</p>
-        </article>
-        <article class="service-card">
-          <span class="service-number">02</span>
-          <h3>Restorative Dentistry</h3>
-          <p>Natural-looking restorations designed to protect teeth while preserving confidence and comfort.</p>
-        </article>
-        <article class="service-card">
-          <span class="service-number">03</span>
-          <h3>Cosmetic Dentistry</h3>
-          <p>Aesthetic treatments for patients who want a healthier, brighter and more confident smile.</p>
-        </article>
-        <article class="service-card">
-          <span class="service-number">04</span>
-          <h3>Implantology</h3>
-          <p>Implant solutions and restorations designed to look natural and function beautifully.</p>
-        </article>
-        <article class="service-card">
-          <span class="service-number">05</span>
-          <h3>Denturology</h3>
-          <p>Personalized complete and partial dentures for comfort, stability and a natural appearance.</p>
-        </article>
-        <article class="service-card">
-          <span class="service-number">06</span>
-          <h3>Orthodontics</h3>
-          <p>Modern orthodontic options for adults and children, including discreet aligner-style treatments.</p>
-        </article>
-      </div>
-    </section>
+<section id="access">
+  <div class="wrap access">
+    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1000&q=84" alt="Clinic room">
+    <div>
+      <div class="eyebrow" data-i18n="fr">Pourquoi Boréal</div>
+      <div class="eyebrow" data-i18n="en">Why Boréal</div>
+      <h2 data-i18n="fr" style="margin:16px 0 30px; font-size:2rem; color:var(--sage-deep);">Une clinique pensée pour le Québec d'aujourd'hui.</h2>
+      <h2 data-i18n="en" style="margin:16px 0 30px; font-size:2rem; color:var(--sage-deep);">A clinic built for today's Québec.</h2>
+      <ul class="access-list">
+        <li><span class="num">01</span><div><h4 data-i18n="fr">Service en français, sans détour</h4><h4 data-i18n="en">French service, no detour</h4><p data-i18n="fr">Premier contact toujours en français, comme l'exige la loi et comme le veut la clientèle.</p><p data-i18n="en">First contact always in French, as required by law and expected by patients.</p></div></li>
+        <li><span class="num">02</span><div><h4 data-i18n="fr">Accessibilité réelle</h4><h4 data-i18n="en">Real accessibility</h4><p data-i18n="fr">Bâtiment accessible, stationnement et transport en commun à proximité.</p><p data-i18n="en">Accessible building, parking and transit nearby.</p></div></li>
+        <li><span class="num">03</span><div><h4 data-i18n="fr">Technologie moderne</h4><h4 data-i18n="en">Modern technology</h4><p data-i18n="fr">Imagerie 3D et dossiers numériques pour un suivi précis.</p><p data-i18n="en">3D imaging and digital records for precise follow-up.</p></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-    <section id="clinic" class="split">
-      <div class="split-photo">
-        <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1000&q=84" alt="Modern dental treatment room">
+<section id="team">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="fr">L'équipe</div>
+      <div class="eyebrow" data-i18n="en">The team</div>
+      <h2 data-i18n="fr">Une équipe présentée avec clarté.</h2>
+      <h2 data-i18n="en">A team presented with clarity.</h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=900&q=84" alt="Dentist portrait">
+        <h3>Dre Camille Fortin</h3>
+        <div class="role" data-i18n="fr">Dentiste généraliste</div><div class="role" data-i18n="en">General dentist</div>
+        <p data-i18n="fr">Soins familiaux et restaurateurs, dans les deux langues officielles.</p>
+        <p data-i18n="en">Family and restorative care, in both official languages.</p>
       </div>
+      <div class="team-card">
+        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=900&q=84" alt="Dentist portrait">
+        <h3>Dr. Marc-Antoine Léveillé</h3>
+        <div class="role" data-i18n="fr">Orthodontiste</div><div class="role" data-i18n="en">Orthodontist</div>
+        <p data-i18n="fr">Alignement moderne pour adultes et enfants.</p>
+        <p data-i18n="en">Modern alignment for adults and children.</p>
+      </div>
+      <div class="team-card">
+        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=900&q=84" alt="Hygiene team">
+        <h3 data-i18n="fr">Équipe d'hygiène</h3><h3 data-i18n="en">Hygiene team</h3>
+        <div class="role" data-i18n="fr">Prévention</div><div class="role" data-i18n="en">Prevention</div>
+        <p data-i18n="fr">Nettoyages et accompagnement au quotidien.</p>
+        <p data-i18n="en">Cleanings and everyday support.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact">
       <div>
-        <p class="eyebrow">Why choose us</p>
-        <h2>Modern care, central location and a multilingual team.</h2>
-        <p class="hero-copy" style="color: var(--muted);">The premium website concept brings the studio's strongest differentiators forward: accessibility, technology, dignity, comfort and language inclusion.</p>
-        <div class="reason-grid">
-          <article class="reason">
-            <h3>Great location</h3>
-            <p>Designed for a central neighborhood clinic with convenient transit access and an easy first visit.</p>
-          </article>
-          <article class="reason">
-            <h3>Digital clinic</h3>
-            <p>State-of-the-art facilities framed through a clean, modern and reassuring design system.</p>
-          </article>
-          <article class="reason">
-            <h3>Patient dignity</h3>
-            <p>Messaging focuses on comfort for patients who may feel anxious about dental visits.</p>
-          </article>
+        <div class="eyebrow" style="color:var(--brass-soft);" data-i18n="fr">Rendez-vous</div>
+        <div class="eyebrow" style="color:var(--brass-soft);" data-i18n="en">Appointment</div>
+        <h2 data-i18n="fr">Prenez rendez-vous, en français ou en anglais, au même endroit.</h2>
+        <h2 data-i18n="en">Book your visit, in French or English, in the same place.</h2>
+        <div class="hero-cta" style="margin-top:28px;">
+          <a class="btn" style="background:var(--brass); color:var(--ink);" href="#" data-i18n="fr">Demander un rendez-vous</a>
+          <a class="btn" style="background:var(--brass); color:var(--ink);" href="#" data-i18n="en">Request an appointment</a>
         </div>
       </div>
-    </section>
-
-    <section id="team" class="team">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Clinical team</p>
-          <h2>A professional team presented with warmth and authority.</h2>
-        </div>
-        <p>For the portfolio concept, team cards show how a clinic can present providers in a polished trust-building section without overwhelming patients.</p>
+      <div class="contact-detail">
+        <div class="row"><span data-i18n="fr">Adresse</span><span data-i18n="en">Address</span><span>Dorval, Québec</span></div>
+        <div class="row"><span data-i18n="fr">Téléphone</span><span data-i18n="en">Phone</span><span>514 000-0000</span></div>
+        <div class="row"><span data-i18n="fr">Courriel</span><span data-i18n="en">Email</span><span>bonjour@boreal-dentaire.ca</span></div>
+        <div class="row"><span data-i18n="fr">Langues</span><span data-i18n="en">Languages</span><span>Français, English</span></div>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div class="doctor-grid">
-        <article class="doctor-card">
-          <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=900&q=84" alt="Dentist portrait concept">
-          <div class="doctor-body">
-            <span>Dentist</span>
-            <h3>Dr. Sofia Laurent</h3>
-            <p>Family, restorative and patient-centered dental care in a multilingual clinic setting.</p>
-          </div>
-        </article>
-        <article class="doctor-card">
-          <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=900&q=84" alt="Dentist portrait concept">
-          <div class="doctor-body">
-            <span>Dentist</span>
-            <h3>Dr. Nadia Hart</h3>
-            <p>Modern dental treatments with a focus on comfort, clarity and professional care.</p>
-          </div>
-        </article>
-        <article class="doctor-card">
-          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=900&q=84" alt="Dental hygienist portrait concept">
-          <div class="doctor-body">
-            <span>Hygiene team</span>
-            <h3>Care & Hygiene Team</h3>
-            <p>Preventive support from a friendly care team focused on healthy, confident smiles.</p>
-          </div>
-        </article>
-      </div>
-    </section>
+<footer>
+  <span data-i18n="fr">Concept de portfolio — Rafaela Alves Studio</span>
+  <span data-i18n="en">Portfolio concept — Rafaela Alves Studio</span>
+  <span data-i18n="fr">Clinique fictive, à des fins de démonstration</span>
+  <span data-i18n="en">Fictional clinic, for demonstration purposes</span>
+</footer>
 
-    <section id="visit" class="visit">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Patient journey</p>
-          <h2>Designed to remove friction before the first appointment.</h2>
-        </div>
-        <p>Premium does not mean complicated. The new structure makes booking, location and language support visible immediately.</p>
-      </div>
+<script>
+  function setLang(lang){
+    document.documentElement.setAttribute('data-lang', lang);
+    document.getElementById('btn-fr').classList.toggle('active', lang==='fr');
+    document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  }
+</script>
 
-      <div class="visit-grid">
-        <article class="visit-card">
-          <h3>1. Choose your service</h3>
-          <p>Visitors can quickly understand whether they need family, cosmetic, restorative, implant or orthodontic care.</p>
-        </article>
-        <article class="visit-card">
-          <h3>2. Confirm access</h3>
-          <p>Transit, parking, elevator and wheelchair access are placed where patients can see them before booking.</p>
-        </article>
-        <article class="visit-card">
-          <h3>3. Book with confidence</h3>
-          <p>Clear calls to action reduce hesitation and turn the site into a patient acquisition tool.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="contact" class="contact">
-      <div>
-        <p class="eyebrow">Appointment request</p>
-        <h2>A cleaner conversion path for a premium clinic.</h2>
-        <p>This final section keeps the essential clinic information visible and turns the contact area into a calm, high-trust booking moment.</p>
-      </div>
-      <aside class="contact-card">
-        <strong>Aurora Dental Studio</strong>
-        <p>Premium dental care concept for a central Montreal clinic.</p>
-        <div class="contact-lines">
-          <span>Downtown Montreal, Quebec</span>
-          <span>Appointment request by phone, email or online form</span>
-          <span>hello@auroradentalstudio.ca</span>
-          <span>English, French, Arabic and Portuguese</span>
-        </div>
-      </aside>
-    </section>
-  </main>
-
-  <footer>
-    <span>Premium redesign concept for portfolio presentation</span>
-    <span>Created by Rafaela Alves Studio</span>
-  </footer>
-
-  <a class="floating-cta" href="#contact">Book a visit</a>
 </body>
 </html>
